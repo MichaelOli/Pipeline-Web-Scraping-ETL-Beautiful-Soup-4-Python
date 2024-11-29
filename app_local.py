@@ -23,7 +23,7 @@ bot = Bot(token=TOKEN)
 # Lista de URLs para monitoramento
 PRODUCT_URLS = [
     'https://www.mercadolivre.com.br/carrinho-beb-conforto-moises-napoli-travel-system-galzerano-cor-preto/p/MLB24838651',
-    'https://produto.mercadolivre.com.br/MLB-1231795719-berco-cama-multifuncional-com-cama-auxiliar-3-gavetas-de-_JM'  # Substitua pelo URL real de outro produto
+    'https://produto.mercadolivre.com.br/MLB-1231795719-berco-cama-multifuncional-com-cama-auxiliar-3-gavetas-de-_JM'  
 ]
 
 def fetch_page(url):
@@ -76,7 +76,7 @@ def parse_page(html):
         logging.error(f"Erro ao parsear HTML: {e}")
         return None
 
-def create_connection(db_name='CarrinhoDoJoaodb'):
+def create_connection(db_name='CarrinhoDoJoao.db'):
     """Cria uma conexão com o banco de dados SQLite."""
     return sqlite3.connect(db_name)
 
