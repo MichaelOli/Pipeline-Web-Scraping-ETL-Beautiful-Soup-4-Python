@@ -114,7 +114,7 @@ async def send_telegram_message(product_name, current_price, installment_price, 
             f"📊 *Monitoramento de Preços:*\n\n"
             f"Produto: *{product_name}*\n"
             f"Preço Atual: R$ {current_price}\n"
-            f"Preço Parcelado: R$ {installment_price}\n"
+            f"Preço Parcelado/Promocional: R$ {installment_price}\n"
         )
         if max_price is None:
             message += "Este é o primeiro registro de preço.\n"
