@@ -9,15 +9,8 @@ import os
 from dotenv import load_dotenv
 import logging
 
-# Configuração do logging
-logging.basicConfig(
-    level=logging.INFO,  # Exibe INFO ou acima no terminal
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.StreamHandler(),  # Exibe no terminal
-        logging.FileHandler('scraping_log.log', mode='a')  # Grava no arquivo
-    ]
-)
+# Configuração de logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Carrega variáveis de ambiente
 load_dotenv()
@@ -29,8 +22,8 @@ bot = Bot(token=TOKEN)
 
 # Lista de URLs para monitoramento
 PRODUCT_URLS = [
-    'https://www.mercadolivre.com.br/carrinho-beb-napoli-beb-conforto-e-base-galzerano/p/MLB32171624',
-    'https://produto.mercadolivre.com.br/MLB-1231793406-berco-cama-multifuncional-com-cama-auxiliar-3-gavetas-dewt-_JM'  # Substitua pelo URL real de outro produto
+    'https://www.mercadolivre.com.br/carrinho-beb-conforto-moises-napoli-travel-system-galzerano-cor-preto/p/MLB24838651',
+    'https://produto.mercadolivre.com.br/MLB-1231795719-berco-cama-multifuncional-com-cama-auxiliar-3-gavetas-de-_JM'  # Substitua pelo URL real de outro produto
 ]
 
 def fetch_page(url):
@@ -49,110 +42,79 @@ def fetch_page(url):
 def parse_page(html):
     """Faz o parsing do HTML e extrai informações do produto."""
     if not html:
+        logging.warning("HTML vazio recebido para parsing.")
         return None
 
     soup = BeautifulSoup(html, 'html.parser')
     try:
         # Extrair o nome do produto
         product_name = soup.find('h1', class_='ui-pdp-title').get_text(strip=True)
-        logging.debug(f"Nome do produto (debug): {product_name}")  # Debug no arquivo de log
-
-        # Tentar encontrar preços de diferentes formas
+        
+        # Extrair os preços
         prices = soup.find_all('span', class_='andes-money-amount__fraction')
-        logging.debug(f"Preços encontrados (debug): {len(prices)}")  # Debug no arquivo de log
-
-        # Verifica a quantidade de preços encontrados
-        if len(prices) < 2:
-            logging.error(f"Não foi possível encontrar preços suficientes para o produto {product_name}. Preços encontrados: {len(prices)}")
-            return None
+        new_price = int(prices[0].get_text(strip=True).replace('.', '')) if len(prices) >= 1 else None
+        installment_price = int(prices[1].get_text(strip=True).replace('.', '')) if len(prices) >= 2 else new_price
         
-        # Atribuir valores de preços
-        new_price = int(prices[0].get_text(strip=True).replace('.', ''))  # Preço atual
-        installment_price = int(prices[1].get_text(strip=True).replace('.', ''))  # Preço parcelado
-
-        # Buscar o preço original (se existir)
+        # Preço original
         old_price_tag = soup.find('span', class_='andes-price__original-value')
-        old_price = None
-        if old_price_tag:
-            old_price = int(old_price_tag.get_text(strip=True).replace('.', ''))
+        old_price = int(old_price_tag.get_text(strip=True).replace('.', '')) if old_price_tag else 0
 
-        # Pegar o timestamp de agora
         timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
-        
+
+        if not new_price:
+            logging.warning("Preço atual não encontrado.")
+            return None
+
+        return {
+            'product_name': product_name,
+            'old_price': old_price,
+            'new_price': new_price,
+            'installment_price': installment_price,
+            'timestamp': timestamp
+        }
     except AttributeError as e:
         logging.error(f"Erro ao parsear HTML: {e}")
         return None
 
-    # Verifica se o preço atual foi encontrado
-    if not new_price:
-        logging.error(f"Preço atual não encontrado para o produto {product_name}.")
-        return None
-
-    # Salva as informações no arquivo de log
-    logging.debug(f"Dados extraídos (debug): {product_name}, {new_price}, {old_price}, {installment_price}")  # Debug no arquivo de log
-
-    # Exibe as informações no terminal
-    logging.info(f"Produto: {product_name} | Preço Atual: {new_price} | Preço Antigo: {old_price if old_price else 'N/A'} | Preço Parcelado: {installment_price} | Timestamp: {timestamp}")
-
-    return {
-        'product_name': product_name,
-        'old_price': old_price if old_price else 0,  # Se não houver preço antigo, coloca 0
-        'new_price': new_price,
-        'installment_price': installment_price if installment_price else 0,  # Se não houver preço parcelado, coloca 0
-        'timestamp': timestamp
-    }
-
-# Exemplo de uso
-html_content = "<html>Seu HTML aqui</html>"  # Substitua pelo conteúdo da página HTML
-product_info = parse_page(html_content)
-
-
-
-
 def create_connection(db_name='CarrinhoDoJoaodb'):
     """Cria uma conexão com o banco de dados SQLite."""
-    conn = sqlite3.connect(db_name)
-    return conn
+    return sqlite3.connect(db_name)
 
 def setup_database(conn):
     """Cria a tabela de preços se ela não existir."""
-    cursor = conn.cursor()
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS prices (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            product_name TEXT,
-            old_price INTEGER,
-            new_price INTEGER,
-            installment_price INTEGER,
-            timestamp TEXT
-        )
-    ''')
-    conn.commit()
+    with conn:
+        conn.execute('''
+            CREATE TABLE IF NOT EXISTS prices (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                product_name TEXT,
+                old_price INTEGER,
+                new_price INTEGER,
+                installment_price INTEGER,
+                timestamp TEXT
+            )
+        ''')
 
 def save_to_database(conn, data):
-    """Salva uma linha de dados no banco de dados SQLite usando pandas."""
-    if not data:
-        logging.warning("Nenhum dado para salvar no banco de dados.")
-        return
-    df = pd.DataFrame([data])
-    df.to_sql('prices', conn, if_exists='append', index=False)
+    """Salva uma linha de dados no banco de dados SQLite."""
+    if data:
+        pd.DataFrame([data]).to_sql('prices', conn, if_exists='append', index=False)
+    else:
+        logging.warning("Nenhum dado a ser salvo.")
 
 def get_max_price(conn, product_name):
     """Consulta o maior preço registrado para um produto específico."""
-    cursor = conn.cursor()
-    cursor.execute("SELECT MAX(new_price), timestamp FROM prices WHERE product_name = ?", (product_name,))
-    result = cursor.fetchone()
-    if result and result[0] is not None:
-        return result[0], result[1]
-    return None, None
+    query = "SELECT MAX(new_price), timestamp FROM prices WHERE product_name = ?"
+    result = conn.execute(query, (product_name,)).fetchone()
+    return result if result[0] is not None else (None, None)
 
-async def send_telegram_message(product_name, current_price, max_price, max_price_timestamp):
+async def send_telegram_message(product_name, current_price, installment_price, max_price, max_price_timestamp):
     """Envia uma mensagem para o Telegram."""
     try:
         message = (
             f"📊 *Monitoramento de Preços:*\n\n"
             f"Produto: *{product_name}*\n"
             f"Preço Atual: R$ {current_price}\n"
+            f"Preço Parcelado: R$ {installment_price}\n"
         )
         if max_price is None:
             message += "Este é o primeiro registro de preço.\n"
@@ -168,38 +130,29 @@ async def send_telegram_message(product_name, current_price, max_price, max_pric
 async def main():
     conn = create_connection()
     setup_database(conn)
-    interval = 60  # Intervalo inicial em segundos
+    interval = 300  # Intervalo em segundos
 
     try:
         while True:
             for url in PRODUCT_URLS:
-                # Faz a requisição e parseia a página
                 page_content = fetch_page(url)
                 product_info = parse_page(page_content)
-
                 if not product_info:
-                    logging.warning("Falha ao obter informações do produto. Tentando novamente...")
                     continue
 
                 current_price = product_info['new_price']
+                installment_price = product_info['installment_price']
                 product_name = product_info['product_name']
                 max_price, max_price_timestamp = get_max_price(conn, product_name)
 
-                # Comparação de preços e envio de notificação
-                await send_telegram_message(product_name, current_price, max_price, max_price_timestamp)
-
-                # Salva os dados no banco de dados SQLite
+                await send_telegram_message(product_name, current_price, installment_price, max_price, max_price_timestamp)
                 save_to_database(conn, product_info)
-                logging.info("Dados salvos no banco: %s", product_info)
 
-            # Aguarda antes da próxima execução
             await asyncio.sleep(interval)
-
     except KeyboardInterrupt:
-        logging.info("Parando a execução...")
+        logging.info("Execução interrompida.")
     finally:
         conn.close()
 
-# Executa o loop assíncrono
 if __name__ == '__main__':
     asyncio.run(main())
