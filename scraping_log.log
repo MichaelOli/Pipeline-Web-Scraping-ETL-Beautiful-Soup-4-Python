@@ -1,0 +1,53 @@
+2024-11-28 12:52:48,946 - ERROR - Erro ao parsear HTML: 'NoneType' object has no attribute 'get_text'
+2024-11-28 12:52:49,691 - INFO - Produto: Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano | Preço Atual: 1858 | Preço Antigo: N/A | Preço Parcelado: 1198 | Timestamp: 2024-11-28 12:52:49
+2024-11-28 12:52:50,850 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:52:50,887 - INFO - Dados salvos no banco: {'product_name': 'Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano', 'old_price': 0, 'new_price': 1858, 'installment_price': 1198, 'timestamp': '2024-11-28 12:52:49'}
+2024-11-28 12:52:51,646 - INFO - Produto: Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt | Preço Atual: 1010 | Preço Antigo: N/A | Preço Parcelado: 97 | Timestamp: 2024-11-28 12:52:51
+2024-11-28 12:52:52,016 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:52:52,419 - INFO - Dados salvos no banco: {'product_name': 'Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt', 'old_price': 0, 'new_price': 1010, 'installment_price': 97, 'timestamp': '2024-11-28 12:52:51'}
+2024-11-28 12:53:53,910 - INFO - Produto: Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano | Preço Atual: 1858 | Preço Antigo: N/A | Preço Parcelado: 1198 | Timestamp: 2024-11-28 12:53:53
+2024-11-28 12:53:55,074 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:53:55,094 - INFO - Dados salvos no banco: {'product_name': 'Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano', 'old_price': 0, 'new_price': 1858, 'installment_price': 1198, 'timestamp': '2024-11-28 12:53:53'}
+2024-11-28 12:53:55,788 - INFO - Produto: Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt | Preço Atual: 1010 | Preço Antigo: N/A | Preço Parcelado: 97 | Timestamp: 2024-11-28 12:53:55
+2024-11-28 12:53:56,146 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:53:56,165 - INFO - Dados salvos no banco: {'product_name': 'Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt', 'old_price': 0, 'new_price': 1010, 'installment_price': 97, 'timestamp': '2024-11-28 12:53:55'}
+2024-11-28 12:54:57,073 - INFO - Produto: Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano | Preço Atual: 1858 | Preço Antigo: N/A | Preço Parcelado: 1198 | Timestamp: 2024-11-28 12:54:57
+2024-11-28 12:54:58,228 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:54:58,345 - INFO - Dados salvos no banco: {'product_name': 'Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano', 'old_price': 0, 'new_price': 1858, 'installment_price': 1198, 'timestamp': '2024-11-28 12:54:57'}
+2024-11-28 12:54:59,539 - INFO - Produto: Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt | Preço Atual: 1010 | Preço Antigo: N/A | Preço Parcelado: 97 | Timestamp: 2024-11-28 12:54:59
+2024-11-28 12:54:59,920 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:55:00,179 - INFO - Dados salvos no banco: {'product_name': 'Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt', 'old_price': 0, 'new_price': 1010, 'installment_price': 97, 'timestamp': '2024-11-28 12:54:59'}
+2024-11-28 12:56:01,031 - INFO - Produto: Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano | Preço Atual: 1858 | Preço Antigo: N/A | Preço Parcelado: 1198 | Timestamp: 2024-11-28 12:56:01
+2024-11-28 12:56:02,180 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:56:02,208 - INFO - Dados salvos no banco: {'product_name': 'Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano', 'old_price': 0, 'new_price': 1858, 'installment_price': 1198, 'timestamp': '2024-11-28 12:56:01'}
+2024-11-28 12:56:02,982 - INFO - Produto: Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt | Preço Atual: 1010 | Preço Antigo: N/A | Preço Parcelado: 97 | Timestamp: 2024-11-28 12:56:02
+2024-11-28 12:56:03,349 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:56:03,376 - INFO - Dados salvos no banco: {'product_name': 'Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt', 'old_price': 0, 'new_price': 1010, 'installment_price': 97, 'timestamp': '2024-11-28 12:56:02'}
+2024-11-28 12:57:04,363 - INFO - Produto: Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano | Preço Atual: 1858 | Preço Antigo: N/A | Preço Parcelado: 1198 | Timestamp: 2024-11-28 12:57:04
+2024-11-28 12:57:05,460 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:57:05,483 - INFO - Dados salvos no banco: {'product_name': 'Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano', 'old_price': 0, 'new_price': 1858, 'installment_price': 1198, 'timestamp': '2024-11-28 12:57:04'}
+2024-11-28 12:57:06,453 - ERROR - Não foi possível encontrar preços suficientes para o produto Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt. Preços encontrados: 1
+2024-11-28 12:57:06,453 - WARNING - Falha ao obter informações do produto. Tentando novamente...
+2024-11-28 12:58:07,366 - INFO - Produto: Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano | Preço Atual: 1858 | Preço Antigo: N/A | Preço Parcelado: 1198 | Timestamp: 2024-11-28 12:58:07
+2024-11-28 12:58:08,461 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:58:08,481 - INFO - Dados salvos no banco: {'product_name': 'Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano', 'old_price': 0, 'new_price': 1858, 'installment_price': 1198, 'timestamp': '2024-11-28 12:58:07'}
+2024-11-28 12:58:09,837 - INFO - Produto: Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt | Preço Atual: 1010 | Preço Antigo: N/A | Preço Parcelado: 97 | Timestamp: 2024-11-28 12:58:09
+2024-11-28 12:58:10,195 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:58:10,217 - INFO - Dados salvos no banco: {'product_name': 'Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt', 'old_price': 0, 'new_price': 1010, 'installment_price': 97, 'timestamp': '2024-11-28 12:58:09'}
+2024-11-28 12:59:11,244 - INFO - Produto: Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano | Preço Atual: 1858 | Preço Antigo: N/A | Preço Parcelado: 1198 | Timestamp: 2024-11-28 12:59:11
+2024-11-28 12:59:12,325 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:59:12,347 - INFO - Dados salvos no banco: {'product_name': 'Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano', 'old_price': 0, 'new_price': 1858, 'installment_price': 1198, 'timestamp': '2024-11-28 12:59:11'}
+2024-11-28 12:59:13,080 - INFO - Produto: Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt | Preço Atual: 1010 | Preço Antigo: N/A | Preço Parcelado: 97 | Timestamp: 2024-11-28 12:59:13
+2024-11-28 12:59:13,433 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 12:59:13,455 - INFO - Dados salvos no banco: {'product_name': 'Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt', 'old_price': 0, 'new_price': 1010, 'installment_price': 97, 'timestamp': '2024-11-28 12:59:13'}
+2024-11-28 13:00:14,314 - INFO - Produto: Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano | Preço Atual: 1858 | Preço Antigo: N/A | Preço Parcelado: 1198 | Timestamp: 2024-11-28 13:00:14
+2024-11-28 13:00:15,456 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 13:00:15,481 - INFO - Dados salvos no banco: {'product_name': 'Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano', 'old_price': 0, 'new_price': 1858, 'installment_price': 1198, 'timestamp': '2024-11-28 13:00:14'}
+2024-11-28 13:00:16,171 - ERROR - Não foi possível encontrar preços suficientes para o produto Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt. Preços encontrados: 1
+2024-11-28 13:00:16,172 - WARNING - Falha ao obter informações do produto. Tentando novamente...
+2024-11-28 13:01:17,016 - INFO - Produto: Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano | Preço Atual: 1858 | Preço Antigo: N/A | Preço Parcelado: 1198 | Timestamp: 2024-11-28 13:01:17
+2024-11-28 13:01:18,116 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 13:01:18,138 - INFO - Dados salvos no banco: {'product_name': 'Carrinho Bebê Napoli Bebê Conforto E Base - Galzerano', 'old_price': 0, 'new_price': 1858, 'installment_price': 1198, 'timestamp': '2024-11-28 13:01:17'}
+2024-11-28 13:01:19,336 - INFO - Produto: Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt | Preço Atual: 1010 | Preço Antigo: N/A | Preço Parcelado: 97 | Timestamp: 2024-11-28 13:01:19
+2024-11-28 13:01:19,686 - INFO - HTTP Request: POST https://api.telegram.org/bot7786949796:AAEx44Nvy9-_a7DKT_lVlQGeJ26PHJnlcrU/sendMessage "HTTP/1.1 200 OK"
+2024-11-28 13:01:19,708 - INFO - Dados salvos no banco: {'product_name': 'Berço Cama Multifuncional Com Cama Auxiliar 3 Gavetas Dewt', 'old_price': 0, 'new_price': 1010, 'installment_price': 97, 'timestamp': '2024-11-28 13:01:19'}
